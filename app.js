@@ -51,5 +51,3 @@ app.use('/campgrounds/:id/comments', commentsRoutes);
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log('server is listening on ' + process.env.IP + ':' + process.env.PORT);
 });
-
-console.log('asd');
