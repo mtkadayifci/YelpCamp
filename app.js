@@ -14,7 +14,8 @@ var campgroundsRoutes = require('./routes/campgrounds'),
     indexRoutes = require('./routes/index');
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/yelpcamp", { useMongoClient: true });
+//export DATABASEURL=mongodb://localhost/yelpcamp
+mongoose.connect(process.env.DATABASEURL, { useMongoClient: true });
 
 //seedDB();
 
@@ -41,7 +42,7 @@ app.use(function(req, res, next) {
     res.locals.error = req.flash('error');
     res.locals.success = req.flash('success');
     next();
-})
+});
 
 app.use(indexRoutes);
 app.use('/campgrounds', campgroundsRoutes);
